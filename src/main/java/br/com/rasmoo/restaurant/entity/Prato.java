@@ -14,7 +14,7 @@ public class Prato {
 
     private String nome;
 
-    private String description;
+    private String descricao;
 
     private Boolean disponivel;
 
@@ -29,7 +29,7 @@ public class Prato {
     public Prato(Integer id, String nome, String description, Boolean disponivel, BigDecimal valor, LocalDateTime dataDeRegistro) {
         this.id = id;
         this.nome = nome;
-        this.description = description;
+        this.descricao = description;
         this.disponivel = disponivel;
         this.valor = valor;
         this.dataDeRegistro = dataDeRegistro;
@@ -51,12 +51,12 @@ public class Prato {
         this.nome = nome;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Boolean getDisponivel() {
@@ -88,7 +88,7 @@ public class Prato {
         return "Prato{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", description='" + description + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", disponivel=" + disponivel +
                 ", valor=" + valor +
                 ", dataDeRegistro=" + dataDeRegistro +
