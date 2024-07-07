@@ -1,10 +1,10 @@
 package br.com.rasmoo.restaurant.service.teste;
 
+import br.com.rasmoo.restaurant.dao.PratoDao;
 import br.com.rasmoo.restaurant.entity.Prato;
+import br.com.rasmoo.restaurant.utils.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.math.BigDecimal;
 
 public class PratoService {
@@ -16,10 +16,11 @@ public class PratoService {
         risoto.setDisponivel(true);
         risoto.setValor(BigDecimal.valueOf(88.50));
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("rasfood");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityManager entityManager = JPAUtil.getEntityManagerRasFood();
+        PratoDao pratoDao = new PratoDao(entityManager);
         entityManager.getTransaction().begin();
-        entityManager.persist(risoto);
+        pratoDao.cadastrar(risoto);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
