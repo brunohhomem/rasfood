@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "pratos")
-public class Prato {
+@Table(name = "cardapio")
+public class Cardapio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +20,24 @@ public class Prato {
 
     private BigDecimal valor;
 
+    /*
+    * Tipos de Relacionamentos
+    * ManyToMany
+    * OneToMany
+    * ManyToOne
+    * OneToOne
+    */
+
+    @ManyToOne
+    private Categoria categoria;
+
     @Column(name = "data_de_registro")
     private LocalDateTime dataDeRegistro = LocalDateTime.now(); //Já deixando a data ser iniciada na criação da entidade
 
-    public Prato() {
+    public Cardapio() {
     }
 
-    public Prato(Integer id, String nome, String description, Boolean disponivel, BigDecimal valor, LocalDateTime dataDeRegistro) {
+    public Cardapio(Integer id, String nome, String description, Boolean disponivel, BigDecimal valor, LocalDateTime dataDeRegistro) {
         this.id = id;
         this.nome = nome;
         this.descricao = description;
@@ -85,7 +96,7 @@ public class Prato {
 
     @Override
     public String toString() {
-        return "Prato{" +
+        return "Cardapio{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
