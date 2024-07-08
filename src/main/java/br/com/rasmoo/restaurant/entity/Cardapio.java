@@ -21,12 +21,12 @@ public class Cardapio {
     private BigDecimal valor;
 
     /*
-    * Tipos de Relacionamentos
-    * ManyToMany
-    * OneToMany
-    * ManyToOne
-    * OneToOne
-    */
+     * Tipos de Relacionamentos
+     * ManyToMany
+     * OneToMany
+     * ManyToOne
+     * OneToOne
+     */
 
     @ManyToOne
     private Categoria categoria;
@@ -34,25 +34,15 @@ public class Cardapio {
     @Column(name = "data_de_registro")
     private LocalDateTime dataDeRegistro = LocalDateTime.now(); //Já deixando a data ser iniciada na criação da entidade
 
-    public Cardapio(String nome, String descricao, Boolean disponivel, BigDecimal valor, Categoria categoria, LocalDateTime dataDeRegistro) {
+    public Cardapio(String nome, String descricao, Boolean disponivel, BigDecimal valor, Categoria categoria) {
         this.nome = nome;
         this.descricao = descricao;
         this.disponivel = disponivel;
         this.valor = valor;
         this.categoria = categoria;
-        this.dataDeRegistro = dataDeRegistro;
     }
 
     public Cardapio() {
-    }
-
-    public Cardapio(Integer id, String nome, String description, Boolean disponivel, BigDecimal valor, LocalDateTime dataDeRegistro) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = description;
-        this.disponivel = disponivel;
-        this.valor = valor;
-        this.dataDeRegistro = dataDeRegistro;
     }
 
     public Integer getId() {
