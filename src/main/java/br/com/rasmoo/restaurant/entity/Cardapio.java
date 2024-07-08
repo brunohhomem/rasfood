@@ -34,6 +34,15 @@ public class Cardapio {
     @Column(name = "data_de_registro")
     private LocalDateTime dataDeRegistro = LocalDateTime.now(); //Já deixando a data ser iniciada na criação da entidade
 
+    public Cardapio(String nome, String descricao, Boolean disponivel, BigDecimal valor, Categoria categoria, LocalDateTime dataDeRegistro) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.disponivel = disponivel;
+        this.valor = valor;
+        this.categoria = categoria;
+        this.dataDeRegistro = dataDeRegistro;
+    }
+
     public Cardapio() {
     }
 
@@ -94,6 +103,14 @@ public class Cardapio {
         this.dataDeRegistro = dataDeRegistro;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
         return "Cardapio{" +
@@ -102,6 +119,7 @@ public class Cardapio {
                 ", descricao='" + descricao + '\'' +
                 ", disponivel=" + disponivel +
                 ", valor=" + valor +
+                ", categoria=" + categoria +
                 ", dataDeRegistro=" + dataDeRegistro +
                 '}';
     }
